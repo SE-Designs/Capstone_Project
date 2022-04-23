@@ -120,17 +120,6 @@ a:hover {
     transition: background-color 400ms;
 }
 
-/* .navbar_btn:hover {
-
-  background:
-  linear-gradient(
-    60deg,
-    rgba(255, 0, 0, 1),
-    rgba(255, 0, 180, 1),
-    rgba(0, 100, 200, 1)
-    );
-} */
-
 /** Chatroom **/
 
 body {
