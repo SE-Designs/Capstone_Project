@@ -1,0 +1,63 @@
+
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
+  <div class="container fluid">
+    <!-- Navbar brand -->
+    <a class="navbar-brand me-2" href="/">
+      <img
+        src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+        height="16"
+        alt="MDB Logo"
+        loading="lazy"
+        style="margin-top: -1px;"
+      />
+                <!-- <img class="logo" src="img/logo-dark.svg" alt=""> --> Okuday
+    </a>
+
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarButtonsExample"
+      aria-controls="navbarButtonsExample"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="bi bi-list"></span>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarButtonsExample">
+      <!-- Left links -->
+      <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <% if user_signed_in? %>
+                            <a class="nav-link" href="/user/<%= current_user.id %>">Chat App</a>
+                        <% else %>
+                            <a class="nav-link" href="/users/sign_in/">Chat App</a>
+                        <% end %>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/rooms">Schedule</a>
+                    </li>
+      </ul>
+      <!-- Left links -->
+
+        <div class="d-flex align-items-center">
+                        <% if user_signed_in? %>
+                            <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-outlined ms-lg-3 navbar_btn"%>
+                        <% else %>
+                            <%= link_to "Login", new_user_session_path, class: "btn btn-primary ms-lg-3 navbar_btn" %>
+                            <%= link_to "Signup", new_user_registration_path, class: "btn btn-outlined ms-lg-3 navbar_btn" %>
+                        <% end %>
+                <!-- <%= image_tag "aitu.png"%> -->
+
+        </div>
+    </div>
+    <!-- Collapsible wrapper -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->

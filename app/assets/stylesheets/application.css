@@ -1,0 +1,653 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/** Main **/
+
+:root {
+    --primary: #0d6efd;
+    --dark: #21252f;
+    --body: #888;
+    --box-shadow: 0 8px 22px rgba(0,0,0,0.1);
+}
+
+body {
+    font-family: Sora, "sans-serif";
+    line-height: 1.7;
+    color: var(--body)
+}
+
+h1,h2,h3,h4,h5,h6,
+.display-4 {
+    color: var(--dark);
+    font-weight: 400;
+}
+
+a {
+    color: var(--dark);
+    text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.navbar {
+    box-shadow: var(--box-shadow);
+}
+
+.logo {
+    width: 160px;
+}
+
+.navbar .nav-link {
+  font-size: 14px;
+  font-weight: 700;
+  margin-right: 10px;
+  text-decoration: none;
+
+  background:
+  linear-gradient(
+    to right,
+    rgba(51, 214, 255, 1),
+    rgba(51, 214, 255, 1)
+  ),
+  linear-gradient(
+    to right,
+    rgba(255, 0, 0, 1),
+    rgba(255, 0, 180, 1),
+    rgba(0, 100, 200, 1)
+    );
+    background-size: 100% 2px, 0 2px;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 400ms;
+}
+
+.navbar .nav-link:hover {
+  color: var(--dark) !important;
+  background-size: 0 2px, 100% 2px;
+}
+
+/* .navbar .nav-link:active {
+  background-size: 0 2px, 100% 2px;
+  background: -webkit-linear-gradient(
+  rgba(255, 0, 0, 1),
+  rgba(255, 0, 180, 1),
+  rgba(0, 100, 200, 1)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+} */
+
+.btn-outlined {
+  border-width: 2px;
+  border-color: var(--primary);
+  transition: color 0.5s ease-out;
+  transition: background-color 0.2s ease-in;
+}
+
+.btn-outlined:hover {
+  color: white;
+  background-color: var(--primary);
+}
+
+.navbar_btn {
+  display: block;
+  width: 100%;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    transition: background-color 400ms;
+}
+
+/* .navbar_btn:hover {
+
+  background:
+  linear-gradient(
+    60deg,
+    rgba(255, 0, 0, 1),
+    rgba(255, 0, 180, 1),
+    rgba(0, 100, 200, 1)
+    );
+} */
+
+/** Chatroom **/
+
+body {
+  height: calc(100vh - 56px);
+  overflow: hidden;
+  }
+
+  .form-control {
+    border-radius: 10px !important;
+  }
+
+  .form-control:focus {
+    border-color: var(--dark);
+    box-shadow: none;
+  }
+
+  .add_room {
+    margin-left: 8px;
+    border-radius: 10px;
+  }
+
+  .add_message {
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .msg-form {
+    width: 100%;
+    height: 50px;
+    padding: 12px;
+    /* box-shadow: 0 22px 40px rgba(0,0,5,2); */
+  }
+
+  .headline {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .form-inline {
+    margin-top: 10px;
+  }
+
+  #single_room {
+    height: calc(100vh - 150px);
+  }
+
+  /* MAIN STYLE CHAT */
+  
+  #messages {
+    color: white;
+    height: calc(100vh - 200px);
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+    
+  #chatroom_container {
+    height: 100vh;
+    margin-right: 0px !important;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+
+  #side_panel {
+    height: calc(100vh - 105px);
+    margin-right: 0px !important;
+    margin-top: 20px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin-bottom: 55px;
+    /* border-right: 2px solid var(--dark); */
+  }
+  
+  #chat_container {
+    height: 100vh;
+    margin-top: 10px;
+    margin-right: 0px !important;
+    margin-left: -10px;
+    /* 
+    background-color: var(--dark);
+    color: white; 
+    */
+  }
+
+  #right_panel {
+    height: calc(100vh - 75px);
+    margin-right: 0px !important;
+    margin-top: 10px;
+    margin-left: 0px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin-bottom: 55px;
+    background-color: #21252f;
+    /* border-right: 2px solid var(--dark); */
+  }
+
+  #schedule {
+    height: calc(100vh - 75px);
+    margin-right: 0px !important;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin-bottom: 55px;
+    background-color: #21252f;
+  }
+
+  /* SCHEDULE */
+
+  .schedule_back {
+    margin-left: 10px;
+    margin-top: 15px;
+    border-radius: 15px;
+  }
+
+  /* LEFT BAR */
+
+  .left_bar {
+    margin-left: 20px;
+    margin-right: 10px;
+  }
+
+  /* COUNTER */
+
+  .timer-container {
+    height: 320px;
+    width: auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #eeeeee;
+  }
+
+  .clock {
+    height: 280px;
+  }
+  
+  /* PROGRESS BAR */
+
+  .progress-bar{
+    position:static;
+    background-color: var(--dark);
+    margin: 4px;
+    padding: 4px;
+    height: 220px;
+    float: center;
+    text-align: center;
+    border-radius: 10px;
+  }
+  .half-circle {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden; 
+    width: 200px; height: 100px; 
+    margin-bottom: -20px;
+  }
+  .bar{
+    position: absolute;
+    top: 0; left: 0;
+    width: 200px; height: 200px; 
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 15px solid gray;       
+    border-bottom-color: #0bf; 
+    border-right-color: #0bf;
+    transform: rotate(45deg);
+  }
+  .progress-bar > .left {
+      position: absolute;
+      background: white;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      left: 0;
+      bottom: -4px;
+      overflow: hidden;
+  }
+  .progress-bar > .right {
+      position: absolute;
+      background: white;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      right: 0;
+      bottom: -4px;
+      overflow: hidden;
+  }
+  
+  .back {
+    width: 15px;
+    height: 15px;
+    background: gray;
+    position: absolute;
+  }
+
+  /* MESSAGE INPUT */
+
+  .msg-content {
+    width: 75%;
+    margin-right: 10px;
+    height: 40px;
+    border-radius: 10px;
+    border-width: 2px;
+    transition: border-color 0.2s ease-in;
+  }
+
+  .msg-content:hover {
+    border-color: var(--primary);
+  }
+
+  /* MESSAGE */
+
+  .message_body {
+    color: white !important;
+  }
+
+  .message_body:hover {
+    color: white !important;
+  }
+
+  .message-box {
+    word-wrap: break-word;
+    width: fit-content;
+    max-width: 40%;
+    border-radius: 10px;
+    margin: 10px;
+    background-color: var(--dark);
+    padding: 10px;
+  }
+
+  .message_info {
+    margin-top: 0px;
+  }
+
+  .message_nametime {
+    margin-top: -12px;
+  }
+
+  /* ATTACHMENTS */
+
+  .attachment_text {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: #33d6ff;
+    font-weight: bold;
+  }
+
+  .attachment_text:hover {
+    color: #eeeeee !important;
+  }
+
+  .attachment_text:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #eeeeee;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .attachment_text:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  /* AVATARS */
+
+  .icon-container {
+    width: 50px;
+    height: 50px;
+    margin-left: 12px;
+    position: relative;
+  }
+
+  .user_row {
+    height: 50px;
+    padding: 10px;
+    border-bottom: 1px solid #555555;
+  }
+
+  .username {
+    overflow: hidden;
+  }
+
+  .chat_avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    box-shadow: 0 0 0 2px  white;
+  }
+
+  .user_avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-top: 5px;
+    box-shadow: 0 0 0 2px  white, 
+                0 0 0 4px  grey;
+  }
+
+  /* .avatar_thumbnail {
+    border-radius: 50%;
+  } */
+
+  /* TASKS */
+
+  /* SEARCH BAR */
+
+  .tag_username {
+    border-radius: 10px;
+    margin-right: 10px;
+  }
+
+  .room_name {
+    margin-left: 10px;
+    margin-top: 15px;
+  }
+
+  /* USER BOX */
+
+  .user_box {
+    height: 350px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  /* USER ROOMS */
+
+  .users_right {
+    margin-right: 12px;
+  }
+
+  .user_list_item {
+    height: auto;
+    border-radius: 15px;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #eeeeee;
+    transition: border-color 0.2s ease-in;
+    transition: background-color 0.2s ease-in;
+  }
+
+  .user_list_item:hover {
+    background-color: #9ac2fe;
+  }
+
+  .user_list_item.active {
+    background: linear-gradient(25deg, #33d6ff, #0d6efd);
+  }
+
+  /* LAST MESSAGE */
+
+  .last-message {
+    font-size: 12px;
+    font-weight: 500;
+    padding-top: 0px;
+    margin-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    margin-left: 8px;
+    color: var(--body);
+  }
+
+  .last-message-time {
+    font-size: 12px;
+    font-weight: 500;
+    padding-top: 0px;
+    margin-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    margin-left: 8px;
+    color: var(--body);
+  }
+
+  /* GROUP ROOMS */
+
+  .room_list_item {
+    height: auto;
+    border-radius: 15px;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #eeeeee;
+    transition: background-color 0.2s ease-in;
+  }
+
+  .room_list_item:hover {
+    background-color: #9ac2fe;
+  }
+
+  .room_list_item.active {
+    background: linear-gradient(25deg, #33d6ff, #0d6efd);
+  }
+
+  .room_list {
+    height: 40px;
+    margin-top: 10px;
+  }
+  
+  /* MESSAGE INFO */
+
+  .name {
+    color: #33d6ff;
+    font-weight: bold;
+    margin-top: 15px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
+  .time {
+    font-size: 12px;
+    font-weight: 500;
+    padding-top: 0px;
+    margin-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
+
+  /* STATUSES */
+
+  .status-circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: grey;
+    border: 2px solid white;
+    bottom: 2px;
+    right: 7px;
+    position: absolute;
+  }
+
+  /* ROOMS SEARCH FILED */
+
+  .room_search_field {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid #555555;
+  }
+
+  .room_search_field:focus {
+    outline: 2px solid var(--dark);
+  }
+
+  .room-leave-link-icon {
+    color: rgb(144, 144, 144);
+    transition: color 0.2s ease-in;
+  }
+
+  .room-leave-link-icon:hover {
+    color: var(--dark);
+  }
+
+  .room-join-link-icon {
+    color: rgb(38, 255, 0);
+  }
+
+  .room-join-link-icon:hover {
+    color: rgba(38, 255, 0, 0.5);
+  }
+
+  .new-room-input {
+    border-radius: 0px !important;
+  }
+
+  .new-room-button {
+    border-radius: 0px !important;
+  }
+
+  /* SIGNIN PAGE */
+  
+  .sign_page {
+    display: inline-block;
+  }
+
+  .sign_page_container {
+    overflow: hidden;
+  }
+
+  .left_side {
+    display: flex;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+    background-color: #21252f;
+  }
+  
+  .right_side {
+    display: flex;
+    border-radius: 20px;
+    padding: 20px;
+  }
+
+  .flex-child {
+    flex: 1;
+    height: auto;
+    border-width: 2px;
+    border-color: #0bf;
+  }
+
+  .signin_form {
+    margin: 20px;
+
+  }
+
+  .welcome {
+    font-weight: bold;
+  }
+
+  .login-action {
+
+  }
+
+  .sign_attr {
+    margin-top: 20px;
+  }

@@ -1,0 +1,27 @@
+<%= turbo_frame_tag "users" %>
+<% if @single_room && @single_room.participant?(@single_room, user) %>
+  <% active_class = 'active' %>
+<% else %>
+  <% active_class = '' %>
+<% end %>
+<div class="user">
+  <div class="users_right user_list_item <%= active_class %>">
+    <div class="row">
+      <div class="col-12 d-flex align-items-center justify-content-between">
+        <div class="icon-container">
+          <%= link_to image_tag(user.chat_avatar, class: 'user_avatar'), user %>
+          <%= turbo_stream_from "user_status" %>
+          <div>
+            <%= render "users/status", user: user %>
+          </div>
+        </div>
+        <%= link_to user.email, user, class:'ms-2 me-auto username_card', data: {turbo: "false"} %>
+      </div>
+    </div>
+    <%= turbo_frame_tag [dom_id(room), "user_last_message"] do %>
+      <%= render "users/last_message", 
+        last_message: last_message, 
+        sender: sender %>
+    <% end %>
+  </div>
+</div>

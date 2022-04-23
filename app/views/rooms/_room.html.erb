@@ -1,0 +1,24 @@
+<%= turbo_frame_tag "rooms" %>
+<% if room.id.eql?(current_user.current_room) %>
+  <% active_class = 'active' %>
+<% else %>
+  <% active_class = '' %>
+<% end %>
+<div class="room">
+  <div class="room_list_item <%= active_class %>">
+    <div class="row">
+      <div class="d-flex align-items-center justify-content-between">
+        <%= turbo_frame_tag dom_id(room) do %>
+          <%= link_to room.name, room_path(room, name_search: params[:name_search]), data: {turbo: "false"}, class: "ms-2 me-auto" %>
+        <% end %>
+        <%= render 'rooms/joinable_link', room: room %>
+      </div>
+    </div>
+    <%= turbo_frame_tag [dom_id(room), "last_message"] do %>
+      <%= render "rooms/last_message", 
+        room: room, 
+        user: user, 
+        last_message: last_message %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="cont-<%=message.user.id%>">
+  <div class="message-box msg-<%= message.user.id %>">
+    <div class="d-flex align-items-center message_info">
+      <%= image_tag(message.user.chat_avatar, class:'chat_avatar') %>
+      <div class="message_nametime">
+        <h6 class="name" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<%= (message.user.email) %>"><%= message.user.username %></h6>
+        <p class="time" data-bs-toggle="tooltip" data-bs-placement="bottom" title="<%= (message.created_at) %>"><%= time_ago_in_words(message.created_at) %> ago</p>
+      </div>
+    </div>
+    <div>
+      <a><%= message.body %></a>
+      <!--<a class="message_body"><%= raw Rinku.auto_link(message.body, :all, 'title="Visiting this page may not be safe!" target="_blank"') %></a>-->
+    </div>
+    <% if message.attachments.attached? %>
+      <% message.attachments.each_with_index do |attachment, index| %>
+        <% if attachment.image? %>
+          <%= image_tag(url_for(attachment), style: 'height:auto; width:100%', class: 'attachment_body') %> 
+          <!-- message.chat_attachment(index)  -->
+        <% elsif attachment.video? %>
+          <%= video_tag(url_for(attachment), style: 'height:auto; width:100%', controls:'', class: 'attachment_body') %>
+        <% elsif attachment.audio? %>
+          <%= audio_tag(url_for(attachment), controls: '', style: 'height:auto; width:100%', class: 'attachment_body') %>
+        <% else %>
+          <%= link_to attachment.filename, url_for(attachment), class: "attachment_text" %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

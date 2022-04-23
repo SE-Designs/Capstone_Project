@@ -1,0 +1,6 @@
+<% rooms.each do |room| %>
+  <div class="d-flex align-items-center justify-content-between room_list_item">
+    <%= link_to room.name, room_path(id: room.id, name_search: params[:name_search]), data: {turbo: "true"} %>
+    <%= render 'rooms/joinable_link', room: room %>
+  </div>
+<% end %>

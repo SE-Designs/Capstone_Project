@@ -1,0 +1,74 @@
+<%= turbo_frame_tag "appearance_channel" %>
+<div id="appearance_channel"></div>
+<div id="chatroom_container" class="row bg-light text-dark">
+  <div id="side_panel" class="col-md-3 col-sm-4">
+    <div class="left_bar">
+
+      <div class="timer-container">
+
+        <div class="progress-bar">
+            <div class="left"></div>
+            <div class="right"><div class="back"></div></div>
+            <div class="half-circle">
+                <div class="bar"></div>
+            </div>
+        <span>40%</span>
+        </div>
+        
+
+      </div>
+      <div class="d-flex align-items-center justify-content-between user_list_item">
+          <div class="icon-container">
+            <%= turbo_stream_from "users" %>
+            <%= link_to image_tag(current_user.chat_avatar, class: 'user_avatar'), current_user %>
+            <%= turbo_stream_from "user_status" %>
+            <div>
+              <%= render "users/status", user: current_user %>
+            </div>
+          </div>
+          <%= link_to current_user.email, current_user, class:'ms-2 me-auto username'%>
+        </div>
+
+      <h4 class="headline"> Rooms: [<%= @joined_rooms.count %>]</h4>
+      <%= turbo_stream_from "rooms" %>
+      <%= render 'layouts/new_room_form' %>
+      <%= render 'rooms/search_form' %>
+      <div id="rooms" data-controller="room-list">
+        <%= render "rooms/rooms", rooms: @joined_rooms, user: current_user %>
+      </div>
+    </div>
+  </div>
+  <div id="chat_container" class="col-md-7 col-sm-6 bg-light text-dark">
+    <% if @single_room %>
+      <div id="single_room">
+        <h4 class="room_name">
+          <%= @user&.email || @single_room.name %> / 
+          <%= @room.joined_users.count %> members
+        </h4>
+        <%= turbo_stream_from @single_room %>
+        <div id="messages" data-controller="scroll">
+          <%= turbo_frame_tag "page_handler" %>
+          <%= render "messages/pager", pagy: @pagy %>
+          <div id="messages-container">
+            <%= render @messages %>
+          </div>
+        </div>
+        <%= render 'layouts/new_message_form' %>
+      </div>
+      <div id="right_panel" class="col-md-2 col-sm-8 bg-light text-dark">
+        <h4 class="headline"> Users: [<%= @users.count %>]</h4>
+        <div class="user_box">
+          <%= turbo_stream_from "users" %>
+          <div id="users" data-controller="user-list">
+            <%= render "users/users", users: @users %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div id="schedule" class="col-md-10 col-sm-4 bg-light text-dark">
+      <div class="schedule_back">
+        <h4>Schedule:</h4>
+      </div>
+    </div>
+  </div>
+</div>
