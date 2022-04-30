@@ -14,14 +14,14 @@
           </div>
           <div class="field sign_attr col-lg-5">
             <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control forms' %>
           </div>
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
           <% end %>
           <div class="field sign_attr col-lg-5">
             <%= f.label :password %> <i>(leave blank - no change)</i><br />
-            <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+            <%= f.password_field :password, autocomplete: "new-password", class: 'form-control forms' %>
             <% if @minimum_password_length %>
               <br />
               <em><%= @minimum_password_length %> characters minimum</em>
@@ -29,11 +29,11 @@
           </div>
           <div class="field">
             <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control forms' %>
           </div>
           <div class="field sign_attr col-lg-5">
             <%= f.label :current_password %> <i>(apply changes)</i><br />
-            <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control' %>
+            <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control forms' %>
           </div>
           <div class="actions">
             <%= f.submit "Update", class: 'btn btn-primary mt-4' %>

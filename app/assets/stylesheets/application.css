@@ -175,16 +175,16 @@ body {
   overflow: hidden;
   }
 
-  .form-control {
+  .form-control:focus {
+    border-color: var(--dark);
+    box-shadow: none;
+  }
+
+  .forms {
     width: 200% !important;
     max-width: 300px;
     min-width: 100px;
     border-radius: 10px !important;
-  }
-
-  .form-control:focus {
-    border-color: var(--dark);
-    box-shadow: none;
   }
 
   .add_room {
@@ -372,6 +372,11 @@ body {
     border-radius: 10px;
     border-width: 2px;
     transition: border-color 0.2s ease-in;
+  }
+
+  .send_message_field {
+    width: 200% !important;
+    border-radius: 10px !important;
   }
 
   .msg-content:hover {
