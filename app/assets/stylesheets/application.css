@@ -97,7 +97,7 @@ a:hover {
 } */
 
 .btn-outlined {
-  border-width: 2px;
+  border-width: 2px !important;
   border-color: var(--primary);
   transition: color 0.5s ease-out;
   transition: background-color 0.2s ease-in;
@@ -120,6 +120,54 @@ a:hover {
     transition: background-color 400ms;
 }
 
+.gradient_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark);
+  text-align: center;
+  --borderWidth: 3px;
+  background: #fff;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+
+.gradient_btn:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg,
+  rgba(255, 0, 0, 1),
+  rgba(255, 0, 180, 1),
+  rgba(0, 100, 200, 1)
+  );
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 5s ease infinite;
+  background-size: 400% 400%;
+}
+
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/* Homepage, Loginpage, Signup, Edit page */
+
+  .scrollable {
+    overflow-y: auto;
+  }
+
 /** Chatroom **/
 
 body {
@@ -128,6 +176,9 @@ body {
   }
 
   .form-control {
+    width: 200% !important;
+    max-width: 300px;
+    min-width: 100px;
     border-radius: 10px !important;
   }
 
@@ -424,9 +475,9 @@ body {
                 0 0 0 4px  grey;
   }
 
-  /* .avatar_thumbnail {
-    border-radius: 50%;
-  } */
+  .avatar_thumbnail {
+    border-radius: 20%;
+  }
 
   /* TASKS */
 
@@ -593,16 +644,6 @@ body {
     border-radius: 0px !important;
   }
 
-  /* SIGNIN PAGE */
-  
-  .sign_page {
-    display: inline-block;
-  }
-
-  .sign_page_container {
-    overflow: hidden;
-  }
-
   .left_side {
     display: flex;
     border-radius: 20px;
@@ -630,11 +671,8 @@ body {
   }
 
   .welcome {
+    margin-top: 10px;
     font-weight: bold;
-  }
-
-  .login-action {
-
   }
 
   .sign_attr {
