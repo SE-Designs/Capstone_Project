@@ -8,8 +8,8 @@
       </div>
     </div>
     <div>
+        <!-- <a class="message_body"><%= raw Rinku.auto_link(message.body, :all, 'title="Visiting this page may not be safe!" target="_blank"') %></a> -->
       <a><%= message.body %></a>
-      <!--<a class="message_body"><%= raw Rinku.auto_link(message.body, :all, 'title="Visiting this page may not be safe!" target="_blank"') %></a>-->
     </div>
     <%= render 'messages/attachments', message: message %>
   </div>
